@@ -13,12 +13,12 @@ i=00
 for f in *; do
   if [[ $f =~ ^([0-9]{1,6})${DELIMITER}.+$ ]]; then
     j=${BASH_REMATCH[1]}
-    test $j -gt $i && i=$j
+    test ${j#0} -gt ${i#0} && i=$j
   fi
 done
 
 pad="${#i}"
-i=$(( ${i#0} + 1 ))
-next_i=$(printf "%0${pad}d" "${i}")
+next_i=$(( ${i#0} + 1 ))
+next_i_str=$(printf "%0${pad}d" "${next_i}")
 
-exec ${EDITOR} ${next_i}${DELIMITER}${@}
+exec ${EDITOR} ${next_i_str}${DELIMITER}${@}
