@@ -21,4 +21,4 @@ pad="${#i}"
 ((i++))
 next_i=$(printf "%0${pad}d" "${i}")
 
-echo exec ${EDITOR} ${next_i}${DELIMITER}${@}
+exec ${EDITOR} ${next_i}${DELIMITER}${@}
