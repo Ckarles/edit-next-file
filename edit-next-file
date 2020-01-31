@@ -18,7 +18,7 @@ for f in *; do
 done
 
 pad="${#i}"
-((i++))
+i=$(( ${i#0} + 1 ))
 next_i=$(printf "%0${pad}d" "${i}")
 
 exec ${EDITOR} ${next_i}${DELIMITER}${@}
