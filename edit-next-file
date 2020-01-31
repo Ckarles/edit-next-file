@@ -2,7 +2,7 @@
 
 DELIMITER="_"
 
-FNAME=$1
+FNAME=${1:-new}
 EDITOR="${EDITOR:-/usr/bin/env vim}"
 
 file=$(ls -1 | grep -E "^([0-9]{1,6}${DELIMITER})?${FNAME}\$") \
